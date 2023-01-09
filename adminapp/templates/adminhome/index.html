@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/abb.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .abb {
+            color: white;
+            background-color: black;
+            font-size: 1.5rem;
+            margin-left: 70%;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        a{
+            color: white;
+            font-size: 1.5rem;
+            margin-left: 70%;
+            text-decoration: none;
+        }
+
+        .abb:hover{
+            color: red;
+        }
+
+        .line{
+        padding-bottom: 15px;
+            border-bottom-style: solid;
+            border-bottom-width: 3.1px;
+            width: fit-content;
+        }
+        .det{
+            color: red;
+            font-size: 24px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <button class='abb' id="ab"><i class="fa fa-power-off"></i>&nbsp; LogOut</button>
+    <H1 class='line' style="color: red;" > GMI Admin Menu</H1> 
+    <div class="container">
+        <img id="add" src="{% static 'images/notes.svg' %}" alt="">
+        <img id="pv" src="{% static 'images/views.svg' %}" alt="">
+        <img id ='review' src="{% static 'images/review.svg' %}" alt="">
+        <img id = 'vreview' src="{% static 'images/reviews.svg' %}" alt="">
+        <img id = 'msgs' src="{% static 'images/msg.svg' %}" alt="">
+        <img id = 'slide' src="{% static 'images/slides.svg' %}" alt="">
+      </div>
+
+      <span class='det' id="view" style="color: red;"></span>
+
+      <script type="text/javascript">
+        document.getElementById("add").onclick = function () {
+            location.href = "./addproduct";
+        };      
+        document.getElementById("pv").onclick = function () {
+            location.href = "./viewproject";
+        };
+        document.getElementById("review").onclick = function () {
+            location.href = "./addreview";
+        };
+        document.getElementById("vreview").onclick = function () {
+            location.href = "./viewreviews";
+        };
+        document.getElementById("msgs").onclick = function () {
+            location.href = "./viewmsg";
+        };
+        document.getElementById("slide").onclick = function () {
+            location.href = "./slides";
+        };
+        document.getElementById("ab").onclick = function () {
+            location.href = "./logout";
+        };
+    </script>
+    <script>
+       var menumsg= document.getElementById('view')
+       var addproject =  document.getElementById('add')
+       var viewprojects = document.getElementById('pv')
+       var addreview = document.getElementById('review')
+       var viewreview = document.getElementById('vreview')
+       var msgs = document.getElementById('msgs')
+
+       addproject.onmouseover=function(){
+        menumsg.innerHTML='Add Projects'
+       }
+        addproject.onmouseout=function(){
+        menumsg.innerHTML=''
+       }
+
+       viewprojects.onmouseover=function(){
+        menumsg.innerHTML='View Projects'
+       }
+        viewprojects.onmouseout=function(){
+        menumsg.innerHTML=''
+       }
+
+       addreview.onmouseover=function(){
+        menumsg.innerHTML='Add Review'
+       }
+        addreview.onmouseout=function(){
+        menumsg.innerHTML=''
+       }
+
+       viewreview.onmouseover=function(){
+        menumsg.innerHTML='View Review'
+       }
+        viewreview.onmouseout=function(){
+        menumsg.innerHTML=''
+       }
+
+       msgs.onmouseover=function(){
+        menumsg.innerHTML='View Msgs'
+       }
+        msgs.onmouseout=function(){
+        menumsg.innerHTML=''
+       }
+
+       slide.onmouseover=function(){
+        menumsg.innerHTML='Add/Edit Slides'
+       }
+        slide.onmouseout=function(){
+        menumsg.innerHTML=''
+       }
+
+    </script>
+
+</body>
+</html>

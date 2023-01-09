@@ -1,0 +1,407 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<!--using-Font-Awesome-------------------->
+<script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+
+
+
+    <style>
+        h1 {
+            padding-top: 50px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .main {
+            padding-top: 50px;
+            width: 1200px;
+        }
+
+
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    :root {
+      --main-blue: #28610b;
+      --main-purple: #48f10f;
+      --main-grey: #ccc;
+      --sub-grey: #d9d9d9;
+    }
+
+    .bs {
+      display: flex;
+      height: 70vh;
+      justify-content: center;
+      /*center vertically */
+      align-items: center;
+      /* center horizontally */
+      background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+      padding-top: 100px;
+      margin-top: 150px;
+      margin-bottom: 200px;
+
+
+    }
+
+    /* container and form */
+    .container {
+      max-width: 1000px;
+      width: 100%;
+      background: #fff;
+      padding: 25px 30px;
+      border-radius: 5px;
+    }
+
+    .container .title {
+      font-size: 25px;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .container .title::before {
+      content: "";
+      position: absolute;
+      height: 3.5px;
+      width: 30px;
+      background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+      left: 0;
+      bottom: 0;
+    }
+
+    .container form .user__details {
+      display: block;
+      justify-content: space-between;
+      margin: 20px 0 12px 0;
+      width: 100%;
+    }
+
+    /* inside the form user details */
+    form .user__details .input__box {
+      width: calc(100% / 2 - 20px);
+      margin-bottom: 15px;
+    }
+
+    .user__details .input__box .details {
+      font-weight: 500;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .user__details .input__box input {
+      height: 45px;
+      width: 100%;
+      outline: none;
+      border-radius: 5px;
+      border: 1px solid var(--main-grey);
+      padding-left: 25px;
+      font-size: 16px;
+      border-bottom-width: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .user__details .input__box input:focus,
+    .user__details .input__box input:valid {
+      border-color: var(--main-purple);
+    }
+
+    /* inside the form gender details */
+
+    form .gender__details .gender__title {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    form .gender__details .category {
+      display: flex;
+      width: 80%;
+      margin: 15px 0;
+      justify-content: space-between;
+    }
+
+    .gender__details .category label {
+      display: flex;
+      align-items: center;
+    }
+
+    .gender__details .category .dot {
+      height: 18px;
+      width: 18px;
+      background: var(--sub-grey);
+      border-radius: 50%;
+      margin: 10px;
+      border: 5px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    #dot-1:checked~.category .one,
+    #dot-2:checked~.category .two,
+    #dot-3:checked~.category .three {
+      border-color: var(--sub-grey);
+      background: var(--main-purple);
+    }
+
+    form input[type="radio"] {
+      display: none;
+    }
+
+    /* submit button */
+    form .button {
+      height: 45px;
+      margin: 45px 0;
+    }
+
+    form .button input {
+      height: 100%;
+      width: 30%;
+      margin-left: 35%;
+      outline: none;
+      color: #fff;
+      border: none;
+      font-size: 18px;
+      font-weight: 500;
+      border-radius: 5px;
+      background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+      transition: all 0.3s ease;
+    }
+
+    form .button input:hover {
+      background: linear-gradient(-135deg, var(--main-blue), var(--main-purple));
+    }
+
+    @media only screen and (max-width: 584px) {
+      .container {
+        max-width: 100%;
+      }
+
+      form .user__details .input__box {
+        margin-bottom: 15px;
+        width: 100%;
+      }
+
+      form .gender__details .category {
+        width: 100%;
+      }
+
+      .container form .user__details {
+        max-height: 300px;
+        overflow-y: scroll;
+      }
+
+      .user__details::-webkit-scrollbar {
+        width: 0;
+      }
+    }
+    a{
+        text-decoration: none;
+    }
+    a .edit{
+        color: white;
+        background-color: green;
+        padding: 10px;
+        font-size: inherit;
+        font-family: inherit;
+    }
+
+    a .delete{
+        color: white;
+        background-color: rgb(143, 12, 43);
+        padding: 10px;
+        font-size: inherit;
+        font-family: inherit;
+    }
+    .button {
+      height: 45px;
+      margin: 45px 0;
+    }
+    .button input {
+      height: 100%;
+      width: 30%;
+      margin-left: 35%;
+      outline: none;
+      color: #fff;
+      border: none;
+      font-size: 18px;
+      font-weight: 500;
+      border-radius: 5px;
+      background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+      transition: all 0.3s ease;
+    }
+    .topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+ 
+    </style>
+</head>
+
+<body>
+  <script>
+    function doSearch(text) {
+        if (window.find(text)) {
+            console.log(window.find(text));
+        }
+    }
+</script>
+
+    <h1> Review Details </h1>
+
+    <div class="topnav" style="padding: 15px;">
+     
+      <div class="search-container">
+
+          <input type="text" id="SearchTxt" placeholder="Search.." name="search">
+          <button type="button" onclick="doSearch(document.getElementById('SearchTxt').value)"><i class="fa fa-search"></i></button>
+
+      </div>
+    </div>
+
+ 
+    {% if list %}
+
+    <div class="container-fluid main">
+        <div class="row">
+            <div class="col-10">
+               <span style="color: #28610b;">{{msg}}</span>
+                <table class="table table-primary table-striped">
+                    <tr>
+                        <th>S/n</th>
+                        <th>Name</th>
+                        <th>Email ID</th>
+                        <th>Mobile</th>
+                        <th>Message</th>
+                        <th>Delete</th>
+                        
+                    </tr>
+                    {% for review in list|dictsortreversed:"id" %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{review.Name  | upper}}</td>
+                        <td>{{review.Email }}</td>
+                        <td>{{review.Phone}}</td>
+                        <td>{{review.Message}}/5</td>
+                        <td><a href="mailto:{{review.Email}}?subject= Reply for your feedback/Query&body=%0D%0A%0D%0A%0D%0A%0D%0A%0D%0A%0D%0A%0D%0A%0D%0Areply to {{review.Message}}"><button class="edit">Reply</button></a>
+                        </td>
+                
+                        
+
+                    </tr>
+                    {% endfor %}
+
+                </table>
+                <a href="{% url 'adminapp:index' %}"><div class="button">
+                  <input type="button" class="" value=" Go Back">
+                </div></a>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                 
+                </div>
+            </div>
+
+        </div>
+    </div> 
+    {% else %}
+    
+    <h1>Not Data</h1>
+   
+   {% endif %}
+
+   
+    
+        </div>
+    </div> 
+</body>
+
+</html>

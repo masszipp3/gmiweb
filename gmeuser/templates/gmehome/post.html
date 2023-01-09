@@ -1,0 +1,101 @@
+{% extends 'gmehome/master.html' %}
+
+{% load static %}
+{% block header %}
+<style>
+    .heading{
+        text-align: center;
+        font-family: Copperplate Gothic light;
+        font-weight: 200;
+       
+    }
+    .main_image{
+        padding-bottom: 3%;
+        padding-left: 5px;
+        padding-right: 5px;
+        max-height: 700px;
+    }
+    .postdesc{
+        font-family:Corbel;
+        font-size: 1.4rem;
+        padding-top: 10px;
+
+    }
+</style>
+{% endblock %}
+
+{% block nav %}
+<div class="collapse navbar-collapse" id="navbarNavDropdown">
+  <ul class="navbar-nav ms-auto">
+    <li class="nav-item">
+      <a class="nav-link me-4" href="{% url 'gmeuser:index' %}">Home </a>
+    </li>
+    <li class="nav-item me-4">
+      <a class="nav-link" href="{% url 'gmeuser:about' %}">About Us</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link me-4" href="{% url 'gmeuser:projects' %}">Projects </a>
+    </li>
+    <li class="nav-item me-4">
+      <a class="nav-link " href="{% url 'gmeuser:review' %}">Reviews</a>
+    </li>
+    <li class="nav-item me-4">
+      <a class="nav-link" href="{% url 'gmeuser:gmeedu' %}">GMI Edu.</a>
+    </li>
+    <li class="nav-item me-2">
+      <a href="{% url 'gmeuser:contact' %}" class="mybtn1">Contact Us</a>
+    </li>
+</div>
+{% endblock %}
+
+{% block content %}
+
+    <img class="main_image" src="{{key.project_image.url}}" alt="" width="100%">
+   <div class="row">
+        
+    <div class= "col-md-2">
+        </div>
+    <div class= "col-md-8 heading">
+      <h1>{{key.title}}</h1>
+    </div></div>
+    <div class= "col-md-2">
+    </div>
+
+    <div class="container postdesc">
+        <p class="postdesc">
+          {{key.description}}
+           </p>
+
+    </div>
+   <div class="container">
+    <div class="row">
+      {% if key.image_1 %}
+      <div class="col-md-12">
+        <img src="{{key.image_1.url}}" alt="" style="width: 100%;" height="100%" class="img-fluid img-thumbnail">
+      </div>
+      {% endif %}
+
+      {% if key.image_2 %}
+      <div class="col-md-12">
+        <img src="{{key.image_2.url}}" alt="" style="width: 100%;" height="100%" class="img-fluid img-thumbnail">
+      </div>
+      {% endif %}
+
+      {% if key.image_3 %}
+      <div class="col-md-12">
+        <img src="{{key.image_3.url}}" alt="" style="width: 100%;" height="100%" class="img-fluid img-thumbnail">
+      </div>
+      {% endif %}
+
+      {% if key.image_4 %}
+      <div class="col-md-12">
+        <img src="{{key.image_4.url}}" alt="" style="width: 100%;" height="100%" class="img-fluid img-thumbnail">
+      </div>
+      {% endif %}
+    </div>
+  </div>
+    <br>
+
+{% endblock %}
+
+

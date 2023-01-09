@@ -1,0 +1,218 @@
+{% extends 'gmehome/master.html' %}
+
+{% load static %}
+{% block header %}
+
+<style>
+  #title-Tag-Line {
+    font-size: 20px;
+  }
+
+  /* .card-item__bg{
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    display: block;
+    position: relative;
+    margin: 30px auto;
+    transform: translate(0px, 50px);
+    z-index: 5;
+  } */
+
+  /* form animation starts */
+  .formss {
+    background: #fff;
+    box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
+    border-radius: 5px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    left: 0;
+    right: 0;
+    position: relative;
+    border-top: 5px solid #0e3721;
+    /*   z-index: 1; */
+    animation: bounce 1.5s infinite;
+  }
+
+  ::-webkit-input-placeholder {
+    font-size: 1.3em;
+  }
+
+  .titles {
+    display: block;
+    font-family: sans-serif;
+    margin: 10px auto 5px;
+    width: 300px;
+  }
+
+  .termsConditions {
+    margin: 0 auto 5px 80px;
+  }
+
+  .pageTitle {
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+  .secondaryTitle {
+    color: grey;
+  }
+
+  .names {
+    background-color: #ebebeb;
+    color: white;
+  }
+
+  .names:hover {
+    border-bottom: 5px solid #0e3721;
+    height: 30px;
+    width: 380px;
+    transition: ease 0.5s;
+  }
+
+  .emails {
+    background-color: #ebebeb;
+    height: 2em;
+  }
+
+  .emails:hover {
+    border-bottom: 5px solid #0e3721;
+    height: 30px;
+    width: 380px;
+    transition: ease 0.5s;
+  }
+
+  .messages {
+    background-color: #ebebeb;
+    overflow: hidden;
+    height: 10rem;
+  }
+
+  .message:hover {
+    border-bottom: 5px solid #0e3721;
+    height: 12em;
+    width: 380px;
+    transition: ease 0.5s;
+  }
+
+  .formEntryy {
+    display: block;
+    margin: 30px auto;
+    min-width: 300px;
+    padding: 10px;
+    border-radius: 2px;
+    border: none;
+    transition: all 0.5s ease 0s;
+  }
+
+  .submits {
+    width: 200px;
+    color: white;
+    background-color: #0e3721;
+    font-size: 20px;
+  }
+
+  .submits:hover {
+    box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
+    transform: translateY(-3px);
+    width: 300px;
+    border-top: 5px solid #0e3750;
+    border-radius: 0%;
+  }
+
+  @keyframes bounce {
+    0% {
+      tranform: translate(0, 4px);
+    }
+
+    50% {
+      transform: translate(0, 8px);
+    }
+  }
+
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+{% endblock %}
+
+{% block nav %}
+<div class="collapse navbar-collapse" id="navbarNavDropdown">
+  <ul class="navbar-nav ms-auto">
+    <li class="nav-item">
+      <a class="nav-link me-4" href="{% url 'gmeuser:index' %}">Home </a>
+    </li>
+    <li class="nav-item me-4">
+      <a class="nav-link" href="{% url 'gmeuser:about' %}">About Us</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link me-4" href="{% url 'gmeuser:projects' %}">Projects </a>
+    </li>
+    <li class="nav-item me-4">
+      <a class="nav-link" href="{% url 'gmeuser:review' %}">Reviews</a>
+    </li>
+    <li class="nav-item me-4">
+      <a class="nav-link" href="{% url 'gmeuser:gmeedu' %}">GMI Edu.</a>
+    </li>
+    <li class="nav-item me-2">
+      <a  href="{% url 'gmeuser:contact' %}" class="mybtn1 activa">Contact Us</a>
+    </li>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="row" style="margin-top: 6%;">
+  <div class="col-md-6 col-12" >
+    <div style="background-color: #0093E9;
+    background-image: url(../../static/images/contt.jpg); margin-top: 3%; margin-left: 8%;
+      padding: 5%; margin-bottom: 10%; width:80% ;height:100%; color: white; border-radius: 5%;">
+      <h1 style="font-family: Comic Sans MS;"> Contact Information
+      </h1><br>
+      <p style="color:rgb(212, 200, 200); font-size:20px; font-family: Comic Sans MS;">
+        fill up the form and our team will get you back within 24 hours
+      </p>
+
+      <i class="fa fa-phone" style="padding-left: 10%;padding-top: 10%; padding-right: 5%; font-size: 30px; " aria-hidden="true"></i> <span style="font-size: 20px;font-family: Comic Sans MS;">+91 8129931412</span> <br>
+      <i class="fa fa-envelope" style="padding-left: 10%; padding-top: 10%; padding-right: 5%; font-size: 30px;" aria-hidden="true"></i> <span style="font-size: 20px;font-family: Comic Sans MS;">rishan@baabte.com</span> <br>
+      <i class="fa fa-map-marker" style="padding-top:10%; padding-right: 5%; padding-left: 10%; font-size: 30px;" aria-hidden="true"></i><span style="font-size: 20px;font-family: Comic Sans MS;">Kozhikode,kerala</span> <br>
+
+
+
+    </div>
+    
+
+    
+
+
+
+    
+  </div>
+    <div class="col-md-6 col-12">
+
+      <div class="wrapper" style="height: 100%; margin-top: 5%;">
+        <form method="post" class="formss">
+          {% csrf_token %}
+          <div class="pageTitle titles">Contact Us </div>
+          <div class="secondaryTitle titles">Please fill this form to Contact Us.</div>
+          <input type="text" class="names formEntryy" name="cname" placeholder="Name" />
+          <input type="text" class="emails formEntryy" name="email" placeholder="Email" />
+          <input type="text" class="emails formEntryy" name="mobile" placeholder="Mobile" />
+          <textarea class="messages formEntryy" name="message" placeholder="Message"></textarea>
+          <input type="checkbox" class="termsConditions" value="Term">
+          <label style="color: grey" for="terms"> I Accept the <span style="color: #0e3721">Terms of Use</span> & <span
+              style="color: #0e3721">Privacy Policy</span>.</label><br>
+          <button class="submits formEntryy" type='submit'>Submit</button>
+        </form>
+      </div>
+
+    </div>
+  
+</div><br><br>
+
+{% endblock %}

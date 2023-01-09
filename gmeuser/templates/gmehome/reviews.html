@@ -1,0 +1,215 @@
+{% extends 'gmehome/master.html' %}
+
+{% load static %}
+{% block header %}
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<!--using-Font-Awesome-------------------->
+<script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+
+<style>
+    
+
+#testimonials{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:100%;
+}
+.testimonial-heading{
+    letter-spacing: 1px;
+    margin: 30px 0px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.testimonial-heading h1{
+    font-size: 2.2rem;
+    font-weight: 500;
+    background-color: #202020;
+    color: #ffffff;
+    padding: 10px 20px;
+}
+.testimonial-heading span{
+    font-size: 1.3rem;
+    color: #252525;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.testimonial-box-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width:100%;
+}
+.testimonial-box{
+    width:500px;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 15px;
+    cursor: pointer;
+}
+.profile-img{
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+.profile-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.profile{
+    display: flex;
+    align-items: center;
+}
+.name-user{
+    display: flex;
+    flex-direction: column;
+}
+.name-user strong{
+    color: #3d3d3d;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+.name-user span{
+    color: #979797;
+    font-size: 0.8rem;
+}
+.reviews{
+    color: #f9d71c;
+}
+.box-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.client-comment p{
+    font-size: 0.9rem;
+    color: #4b4b4b;
+}
+.testimonial-box:hover{
+    transform: translateY(-10px);
+    transition: all ease 0.3s;
+}
+ 
+@media(max-width:1060px){
+    .testimonial-box{
+        width:45%;
+        padding: 10px;
+    }
+}
+@media(max-width:790px){
+    .testimonial-box{
+        width:100%;
+    }
+    .testimonial-heading h1{
+        font-size: 1.4rem;
+    }
+}
+@media(max-width:340px){
+    .box-top{
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+    .reviews{
+        margin-top: 10px;
+    }
+}
+::selection{
+    color: #ffffff;
+    background-color: #252525;
+}
+</style>
+{% endblock %}
+
+{% block nav %}
+<div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+        <a class="nav-link me-4" href="{% url 'gmeuser:index' %}">Home </a>
+      </li>
+      <li class="nav-item me-4">
+        <a class="nav-link" href="{% url 'gmeuser:about' %}">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link me-4" href="{% url 'gmeuser:projects' %}">Projects </a>
+      </li>
+      <li class="nav-item me-4">
+        <a class="nav-link activa" href="{% url 'gmeuser:review' %}">Reviews</a>
+      </li>
+      <li class="nav-item me-4">
+        <a class="nav-link" href="{% url 'gmeuser:gmeedu' %}">GMI Edu.</a>
+      </li>
+      <li class="nav-item me-2">
+        <a href="{% url 'gmeuser:contact' %}" class="mybtn1">Contact Us</a>
+      </li>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+
+
+
+    <!--Testimonials------------------->
+    <section id="testimonials" style="background-color: #177232; padding-top: 6%;">
+        <!--heading--->
+        <div class="testimonial-heading">
+            <span style="color: white;">Comments</span>
+            <h1>Clients Says</h1>
+        </div>
+        <!--testimonials-box-container------>
+        <div class="testimonial-box-container">
+            {% for i in rvdetails %}
+            <!--BOX-1-------------->
+            <div class="testimonial-box">
+                <!--top------------------------->
+                <div class="box-top">
+                    <!--profile----->
+                    <div class="profile">
+                        <!--img---->
+                        <div class="profile-img">
+                            <img src="{% static 'images/profile.png' %}" />
+                        </div>
+                        <!--name-and-username-->
+                        <div class="name-user">
+                            <strong>{{i.Customername}}</strong>
+                            <span>{{i.Emailid}}</span>
+                        </div>
+                    </div>
+                    <!--reviews------>
+                    
+                    <div class="reviews">
+                       
+                        <i id="one" name="1" class="{% if i.Rating > 0 %} fas {% else %} far {% endif %} fa-star"></i>
+                        <i id="two" name="2" class="{% if i.Rating > 1 %} fas {% else %} far {% endif %} fa-star"> </i>
+                        <i id="three" name="3" class="{% if i.Rating > 2 %} fas {% else %} far {% endif %} fa-star"></i>
+                        <i id="four" name="4" class="{% if i.Rating > 3 %} fas {% else %} far {% endif %} fa-star"></i>
+                        <i id="five" name="5" class="{% if i.Rating > 4 %} fas {% else %} far {% endif %} fa-star"></i>
+                    </div>
+                </div>
+                <!--Comments---------------------------------------->
+                <div class="client-comment">
+                    <p>{{i.Review }}</p>
+                </div>
+            </div>
+            {% endfor %}
+           
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('star')
+    </script>
+{% endblock %}

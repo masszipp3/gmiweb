@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        :root {
+            --main-blue: #28610b;
+            --main-purple: #48f10f;
+            --main-grey: #ccc;
+            --sub-grey: #d9d9d9;
+        }
+
+        body {
+            display: flex;
+            height: 70vh;
+            justify-content: center;
+            /*center vertically */
+            align-items: center;
+            /* center horizontally */
+            background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+            padding-top: 100px;
+            margin-top: 150px;
+            margin-bottom: 200px;
+
+
+        }
+
+        /* container and form */
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: #fff;
+            padding: 25px 30px;
+            border-radius: 5px;
+        }
+
+        .container .title {
+            font-size: 25px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .container .title::before {
+            content: "";
+            position: absolute;
+            height: 3.5px;
+            width: 30px;
+            background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+            left: 0;
+            bottom: 0;
+        }
+
+        .container form .user__details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0 12px 0;
+        }
+
+        /* inside the form user details */
+        form .user__details .input__box {
+            width: calc(100% / 2 - 20px);
+            margin-bottom: 15px;
+        }
+
+        .user__details .input__box .details {
+            font-weight: 500;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .user__details .input__box input {
+            height: 45px;
+            width: 80%;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid var(--main-grey);
+            padding-left: 25px;
+            font-size: 16px;
+            border-bottom-width: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .user__details .input__box input:focus,
+        .user__details .input__box input:valid {
+            border-color: var(--main-purple);
+        }
+
+        /* inside the form gender details */
+
+        form .gender__details .gender__title {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        form .gender__details .category {
+            display: flex;
+            width: 80%;
+            margin: 15px 0;
+            justify-content: space-between;
+        }
+
+        .gender__details .category label {
+            display: flex;
+            align-items: center;
+        }
+
+        .gender__details .category .dot {
+            height: 18px;
+            width: 18px;
+            background: var(--sub-grey);
+            border-radius: 50%;
+            margin: 10px;
+            border: 5px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        #dot-1:checked~.category .one,
+        #dot-2:checked~.category .two,
+        #dot-3:checked~.category .three {
+            border-color: var(--sub-grey);
+            background: var(--main-purple);
+        }
+
+        form input[type="radio"] {
+            display: none;
+        }
+
+        /* submit button */
+        form .button {
+            height: 45px;
+            margin: 45px 0;
+        }
+
+        form .button input {
+            height: 100%;
+            width: 30%;
+            margin-left: 35%;
+            outline: none;
+            color: #fff;
+            border: none;
+            font-size: 18px;
+            font-weight: 500;
+            border-radius: 5px;
+            background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+            transition: all 0.3s ease;
+        }
+
+        form .button input:hover {
+            background: linear-gradient(-135deg, var(--main-blue), var(--main-purple));
+        }
+
+        @media only screen and (max-width: 584px) {
+            .container {
+                max-width: 100%;
+            }
+
+            form .user__details .input__box {
+                margin-bottom: 15px;
+                width: 100%;
+            }
+
+            form .gender__details .category {
+                width: 100%;
+            }
+
+            .container form .user__details {
+                max-height: 300px;
+                overflow-y: scroll;
+            }
+
+            .user__details::-webkit-scrollbar {
+                width: 0;
+            }
+        }
+
+        .back {
+            color: rgb(255, 255, 255);
+            background-color: maroon;
+            padding: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="title">Edit Slides</div>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="user__details">
+
+                <div class="input__box">
+                    <label for="" class="details">Upload image 1</label>
+                    <input type="file" id="st_img1" name="img_1">
+                </div>
+
+            </div>
+            <div class="button">
+                <input type="submit" value="Add">
+            </div>
+            <a href="{% url 'adminapp:slides' %}">
+                <div class="button">
+                    <input type="button" class="" value=" Go Back">
+                </div>
+            </a>
+        </form>
+        <span style="color: red; text-align: center;">
+            {{status}}
+
+        </span>
+
+    </div>
+
+
+</body>
+
+</html>

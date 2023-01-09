@@ -1,0 +1,114 @@
+{% extends 'gmehome/master.html' %}
+
+{% load static %}
+{% block header %}
+<style>
+    .columnn {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.carde {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #000000;
+  color: white;
+  padding-top: 10%;
+}
+
+.containerr {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.titles {
+  color: grey;
+}
+
+.buttons {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.buttons:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .columnn {
+    width: 100%;
+    display: block;
+  }
+}
+</style>
+
+{% endblock %}
+
+{% block nav %}
+<div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+        <a class="nav-link me-4" href="{% url 'gmeuser:index' %}">Home </a>
+      </li>
+      <li class="nav-item me-4">
+            <a class="nav-link activa" href="{% url 'gmeuser:about' %}">About Us</a>
+          </li>
+      <li class="nav-item">
+        <a class="nav-link me-4" href="{% url 'gmeuser:projects' %}">Projects </a>
+      </li>
+      <li class="nav-item me-4">
+        <a class="nav-link" href="{% url 'gmeuser:review' %}">Reviews</a>
+      </li>
+      <li class="nav-item me-4">
+        <a class="nav-link" href="{% url 'gmeuser:gmeedu' %}">GMI Edu.</a>
+      </li>
+      <li class="nav-item me-2">
+        <a href="{% url 'gmeuser:contact' %}" class="mybtn1">Contact Us</a>
+      </li>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="about-section" style="height: 700px;">
+    <h1 style="text-decoration: underline;">About Us</h1><br>
+    <p style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 20px;">GMI (Green Masters International )was founded in Singapore and spread in to Malaysia and India. We are committed
+        to full fill your dreams into reality, whether it’s your family house, a luxurious hideaway, or a high rise
+        tower. We cater to all aspects of design and construction of all type buildings. We are dedicated to give you
+        the best low cost good looking Eco friendly house within the time limit. For us age of a building is not an
+        issue!!We renovate all types of buildings in to best that you dream.
+        We believe that great design should enhance the value of each place, make optimal utility of space, elicit an
+        emotional response, and use less energy. Our designs are inspired by clients and the surrounding landscape,
+        resulting in an architecture that is uniquely informed by both subject and place. 
+   
+        Our Approach towards Sustainable development has been practical ,holistic ,intuitive.Most of our design which blend traditional concepts with contemporary lifestyles using technology as an aide 
+   
+    
+        For us , being “GREEN”is a care.care for people ,nature and the earth.for these ideas to translate to reality ,one needs to approach them with a lot of passion ,common sense and economy .
+    </p>
+  </div>
+  
+ 
+  
+
+
+{% endblock %}

@@ -1,0 +1,378 @@
+{% extends 'gmehome/master.html' %}
+
+{% load static %}
+{% block header %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  .cad:hover {
+    -ms-transform: scale(1.1);
+    /* IE 9 */
+    -webkit-transform: scale(1.1);
+    /* Safari 3-8 */
+    transform: scale(1.1);
+    transition: 0.3s;
+    margin: 10px;
+  }
+
+  .ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: inherit;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .li {
+    justify-content: center;
+    font-size: larger;
+  }
+
+  .li button {
+    display: block;
+    color: #000000;
+    font-weight: 500;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: inherit;
+    border: none;
+  }
+
+
+  button:hover {
+    color: rgb(160, 137, 7);
+  }
+
+  .active {
+    color: rgb(160, 137, 7);
+  }
+
+  @media(max-width:1060px) {
+    .ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: inherit;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      max-width: 1000px;
+    }
+
+    .li {
+      justify-content: center;
+      font-size: larger;
+    }
+
+    .li button {
+      display: block;
+      color: #000000;
+      font-weight: 500;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      background-color: inherit;
+      border: none;
+    }
+  }
+
+  @media(max-width:790px) {
+    .ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: inherit;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      max-width: 1000px;
+    }
+
+    .li {
+      justify-content: center;
+      font-size: larger;
+    }
+
+    .li button {
+      display: block;
+      color: #000000;
+      font-weight: 500;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      background-color: inherit;
+      border: none;
+    }
+  }
+
+  @media(max-width:340px) {
+    .ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: inherit;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      max-width: 1000px;
+    }
+
+    .li {
+      justify-content: center;
+      font-size: larger;
+    }
+
+    .li button {
+      display: block;
+      color: #000000;
+      font-weight: 500;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      background-color: inherit;
+      border: none;
+    }
+  }
+
+  @media(max-width:250px) {
+    .ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: inherit;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      max-width: 1000px;
+    }
+
+    .li {
+      justify-content: center;
+      font-size: larger;
+    }
+
+    .li button {
+      display: block;
+      color: #000000;
+      font-weight: 500;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      background-color: inherit;
+      border: none;
+    }
+  }
+</style>
+
+{% endblock %}
+
+{% block nav %}
+<div class="collapse navbar-collapse" id="navbarNavDropdown">
+  <ul class="navbar-nav ms-auto">
+    <li class="nav-item">
+      <a class="nav-link me-4" href="{% url 'gmeuser:index' %}">Home </a>
+    </li>
+    <li class="nav-item me-4">
+      <a class="nav-link" href="{% url 'gmeuser:about' %}">About Us</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link activa me-4" href="{% url 'gmeuser:projects' %}">Projects </a>
+    </li>
+    <li class="nav-item me-4">
+      <a class="nav-link" href="{% url 'gmeuser:review' %}">Reviews</a>
+    </li>
+    <li class="nav-item me-4">
+      <a class="nav-link" href="{% url 'gmeuser:gmeedu' %}">GMI Edu.</a>
+    </li>
+    <li class="nav-item me-2">
+      <a href="{% url 'gmeuser:contact' %}" class="mybtn1">Contact Us</a>
+    </li>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="row" style="margin-top:6%;">
+  <div class="col-12">
+    <ul class="ul">
+      <li class="li "><button id="proj" style="color: rgb(0, 0, 0);"></i> Projects <i
+            class="fa fa-angle-double-right"></i></button></li>
+      <li class="li "><button id="bt1" style="color: red;" onfocus="style.color='black'"> <i
+            class="fa fa-caret-right"></i> &nbsp;All</button></li>
+      <li class="li"><button id="bt2" onfocus="style.color='red'" onblur="style.color='black' "> <i
+            class="	fa fa-caret-right"></i> &nbsp;Residential</button></li>
+      <li class="li"> <button id="bt3" onfocus="style.color='red'" onblur="style.color='black'"><i
+            class="	fa fa-caret-right"></i> &nbsp;commercial</button></li>
+      <li class="li"><button id="bt4" onfocus="style.color='red'" onblur="style.color='black'"><i
+            class="	fa fa-caret-right"></i> &nbsp;Renovation</button></li>
+    </ul>
+  </div>
+</div>
+<div class="container" id="All">
+  <div class="row">
+    {% for i in details %}
+    <div class="col-md-4 col-12 p-4">
+      <a style="text-decoration: none; color: black;" href="{% url 'gmeuser:post' i.id i.title %}">
+        <div class="cad">
+          <img src="{{i.project_image.url}}" alt="Avatar" style="width:100%; height:272px;">
+          <div class="contaner">
+            <p class="as">{{i.title}}
+            <p>
+          </div>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+
+<div class="container" style="display: none;" id="Residential">
+  <div class="row">
+    {% for i in details %}
+    {% if i.catagory == 'Residential' %}
+    <div class="col-md-4 col-12 p-4">
+      <a style="text-decoration: none; color: black;" href="{% url 'gmeuser:post' i.id i.title %}">
+        <div class="cad">
+          <img src="{{i.project_image.url}}" alt="Avatar" style="width:100%; height:272px;">
+          <div class="contaner">
+            <p class="as">{{i.title}}
+            <p>
+          </div>
+        </div>
+      </a>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+
+<div class="container" style="display: none;" id="Commercial">
+  <div class="row">
+    {% for i in details %}
+    {% if i.catagory == 'Commercial' %}
+    <div class="col-md-4 col-12 p-4">
+      <a style="text-decoration: none; color: black;" href="{% url 'gmeuser:post' i.id i.title %}">
+        <div class="cad">
+          <img src="{{i.project_image.url}}" alt="Avatar" style="width:100%; height:272px;">
+          <div class="contaner">
+            <p class="as">{{i.title}}
+            <p>
+          </div>
+        </div>
+      </a>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+
+<div class="container" style="display: none;" id="Renovation">
+  <div class="row">
+    {% for i in details %}
+    {% if i.catagory == 'Renovation' %}
+    <div class="col-md-4 col-12 p-4">
+      <a style="text-decoration: none; color: black;" href="{% url 'gmeuser:post' i.id i.title %}">
+        <div class="cad">
+          <img src="{{i.project_image.url}}" alt="Avatar" style="width:100%; height:272px;">
+          <div class="contaner">
+            <p class="as">{{i.title}}
+            <p>
+          </div>
+        </div>
+      </a>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  var bt1 = document.getElementById('bt1')
+  var bt2 = document.getElementById('bt2')
+  var bt3 = document.getElementById('bt3')
+  var bt4 = document.getElementById('bt4')
+  var renovation = document.getElementById('Renovation')
+  var residential = document.getElementById('Residential')
+
+  var commercial = document.getElementById('Commercial')
+  var all = document.getElementById('All')
+
+  bt2.onclick = function () {
+    document.getElementById('Renovation').style.display = 'none'
+
+    document.getElementById('Commercial').style.display = 'none'
+    document.getElementById('All').style.display = 'none'
+    document.getElementById('Residential').style.display = 'block'
+    document.getElementById('bt1').style.color = 'black'
+
+
+
+
+  }
+
+  bt3.onclick = function () {
+    document.getElementById('Renovation').style.display = 'none'
+
+    document.getElementById('Commercial').style.display = 'block'
+    document.getElementById('All').style.display = 'none'
+    document.getElementById('Residential').style.display = 'none'
+    document.getElementById('bt1').style.color = 'black'
+
+  }
+
+  bt4.onclick = function () {
+    document.getElementById('Renovation').style.display = 'block'
+
+    document.getElementById('Commercial').style.display = 'none'
+    document.getElementById('All').style.display = 'none'
+    document.getElementById('Residential').style.display = 'none'
+    document.getElementById('bt1').style.color = 'black'
+
+
+  }
+
+  bt1.onclick = function () {
+    document.getElementById('Renovation').style.display = 'none'
+    document.getElementById('Commercial').style.display = 'none'
+    document.getElementById('All').style.display = 'block'
+    document.getElementById('Residential').style.display = 'none'
+    document.getElementById('bt1').style.color = 'red'
+
+
+
+  }
+
+
+</script>
+
+</div>
+</div>
+{% endblock %}

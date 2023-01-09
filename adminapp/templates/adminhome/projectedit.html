@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        :root {
+            --main-blue: #28610b;
+            --main-purple: #48f10f;
+            --main-grey: #ccc;
+            --sub-grey: #d9d9d9;
+        }
+
+        body {
+            display: flex;
+            height: 70vh;
+            justify-content: center;
+            /*center vertically */
+            align-items: center;
+            /* center horizontally */
+            background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+            padding-top: 100px;
+            margin-top: 150px;
+            margin-bottom: 200px;
+
+
+        }
+
+        /* container and form */
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: #fff;
+            padding: 25px 30px;
+            border-radius: 5px;
+        }
+
+        .container .title {
+            font-size: 25px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .container .title::before {
+            content: "";
+            position: absolute;
+            height: 3.5px;
+            width: 30px;
+            background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+            left: 0;
+            bottom: 0;
+        }
+
+        .container form .user__details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0 12px 0;
+        }
+
+        /* inside the form user details */
+        form .user__details .input__box {
+            width: calc(100% / 2 - 20px);
+            margin-bottom: 15px;
+        }
+
+        .user__details .input__box .details {
+            font-weight: 500;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .user__details .input__box input {
+            height: 45px;
+            width: 80%;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid var(--main-grey);
+            padding-left: 25px;
+            font-size: 16px;
+            border-bottom-width: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .user__details .input__box input:focus,
+        .user__details .input__box input:valid {
+            border-color: var(--main-purple);
+        }
+
+        /* inside the form gender details */
+
+        form .gender__details .gender__title {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        form .gender__details .category {
+            display: flex;
+            width: 80%;
+            margin: 15px 0;
+            justify-content: space-between;
+        }
+
+        .gender__details .category label {
+            display: flex;
+            align-items: center;
+        }
+
+        .gender__details .category .dot {
+            height: 18px;
+            width: 18px;
+            background: var(--sub-grey);
+            border-radius: 50%;
+            margin: 10px;
+            border: 5px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        #dot-1:checked~.category .one,
+        #dot-2:checked~.category .two,
+        #dot-3:checked~.category .three {
+            border-color: var(--sub-grey);
+            background: var(--main-purple);
+        }
+
+        form input[type="radio"] {
+            display: none;
+        }
+
+        /* submit button */
+        form .button {
+            height: 45px;
+            margin: 45px 0;
+        }
+
+        form .button input {
+            height: 100%;
+            width: 30%;
+            margin-left: 35%;
+            outline: none;
+            color: #fff;
+            border: none;
+            font-size: 18px;
+            font-weight: 500;
+            border-radius: 5px;
+            background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+            transition: all 0.3s ease;
+        }
+
+        form .button input:hover {
+            background: linear-gradient(-135deg, var(--main-blue), var(--main-purple));
+        }
+
+        @media only screen and (max-width: 584px) {
+            .container {
+                max-width: 100%;
+            }
+
+            form .user__details .input__box {
+                margin-bottom: 15px;
+                width: 100%;
+            }
+
+            form .gender__details .category {
+                width: 100%;
+            }
+
+            .container form .user__details {
+                max-height: 300px;
+                overflow-y: scroll;
+            }
+
+            .user__details::-webkit-scrollbar {
+                width: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Edit Project Details</div>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="user__details">
+
+                <div class="input__box">
+                    <label for="" class="details">Title</label>
+                    <input type="text" value="{{edit.title}}" placeholder="Enter Title " required name="s_desc">
+                </div>
+
+                <div class="input__box">
+                    <label for="" class="details">catagory</label>
+                    <input type="text" placeholder="category" value="{{edit.catagory}}" required name="category">
+                </div>
+
+                <div class="input__box">
+                    <label for="" class="details">Complete Description of the Project</label>
+                    <textarea name="full_desc" id="" cols="50" rows="10" placeholder="enter complete description"> {{edit.description}} </textarea>
+                </div>
+               
+            
+                <div class="input__box ">
+                    <input type="button" id='ifr' value="Edit Images" data-toggle="modal" data-target="#myModal" style="background-color: red; color: white; margin-top: 10%;">
+                </div>
+            </div>
+            <div class="button">
+                <input type="submit" value="Add">
+            </div>
+            <a href="{% url 'adminapp:viewproject' %}"><div class="button">
+                <input type="button" class="" value=" Go Back">
+              </div></a>
+        </form>
+        <span style="color: red; text-align: center;">
+            {{status}}
+
+        </span>
+    </div>
+
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Change Pictures</h4>
+                </div>
+                <div class="modal-body">
+                 <iframe id='ff' src="{% url 'adminapp:select' edit.id %}" width="100%" height='500px' frameborder="0"></iframe>
+                </div>
+            </div>
+
+        </div>
+    </div> 
+    <script>
+       var ifr = document.getElementById('ifr')
+       ifr.onclick=function(){
+        document.getElementById('ff').src = document.getElementById('ff').src;
+       }
+    </script>
+</body>
+
+</html>
