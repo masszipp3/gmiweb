@@ -3,8 +3,17 @@ from gmeuser.models import ProjectDetails
 from gmeuser.models import ReviewDetails
 from gmeuser.models import Msgs
 from adminapp.models import Slides
+from django.http import HttpResponse
+
+
+
 
 # Create your views here.
+
+def error_404(request, exception):
+    # template = loader.get_template('maintance.html')
+    # context = Context({'message': 'All: %s' % request,})
+    return render(request, '404.html')
 
 def index(request):
     try:
@@ -80,4 +89,9 @@ def gmeedu(request):
     return render(request,'gmehome/gmedu.html')     
 
 def maintainance(request):
-    return render(request,'gmehome/maintainance.html')         
+    return render(request,'gmehome/maintainance.html')  
+
+def notfound(request,name):
+    if name:
+        return render(request,'gmehome/maintainance.html')     
+          

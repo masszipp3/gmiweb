@@ -125,6 +125,40 @@
     border-radius: 0%;
   }
 
+  .aaa {
+    margin-top: 6%;
+  }
+
+  @media(max-width:1060px) {
+    .aaa {
+      margin-top: 10%;
+    }
+  }
+
+  @media(max-width:790px) {
+    .aaa {
+      margin-top: 10%;
+    }
+  }
+
+  @media(max-width:340px) {
+    .aaa {
+      margin-top: 15%;
+
+    }
+
+  }
+ 
+  @media(max-width:540px) {
+    .aaa {
+      margin-top: 20%;
+
+    }
+
+  }
+
+  
+
   @keyframes bounce {
     0% {
       tranform: translate(0, 4px);
@@ -134,7 +168,6 @@
       transform: translate(0, 8px);
     }
   }
-
 </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -160,39 +193,44 @@
       <a class="nav-link" href="{% url 'gmeuser:gmeedu' %}">GMI Edu.</a>
     </li>
     <li class="nav-item me-2">
-      <a  href="{% url 'gmeuser:contact' %}" class="mybtn1 activa">Contact Us</a>
+      <a href="{% url 'gmeuser:contact' %}" class="mybtn1 activa">Contact Us</a>
     </li>
 </div>
 {% endblock %}
 
 {% block content %}
+<div class="aaa">
 
-<div class="row" style="margin-top: 6%;">
-  <div class="col-md-6 col-12" >
-    <div style="background-color: #0093E9;
+  <div class="row">
+    <div class="col-md-6 col-12">
+      <div style="background-color: #0093E9;
     background-image: url(../../static/images/contt.jpg); margin-top: 3%; margin-left: 8%;
       padding: 5%; margin-bottom: 10%; width:80% ;height:100%; color: white; border-radius: 5%;">
-      <h1 style="font-family: Comic Sans MS;"> Contact Information
-      </h1><br>
-      <p style="color:rgb(212, 200, 200); font-size:20px; font-family: Comic Sans MS;">
-        fill up the form and our team will get you back within 24 hours
-      </p>
+        <h1 style="font-family: Comic Sans MS;"> Contact Information
+        </h1><br>
+        <p style="color:rgb(212, 200, 200); font-size:20px; font-family: Comic Sans MS;">
+          fill up the form and our team will get you back within 24 hours
+        </p>
 
-      <i class="fa fa-phone" style="padding-left: 10%;padding-top: 10%; padding-right: 5%; font-size: 30px; " aria-hidden="true"></i> <span style="font-size: 20px;font-family: Comic Sans MS;">+91 8129931412</span> <br>
-      <i class="fa fa-envelope" style="padding-left: 10%; padding-top: 10%; padding-right: 5%; font-size: 30px;" aria-hidden="true"></i> <span style="font-size: 20px;font-family: Comic Sans MS;">rishan@baabte.com</span> <br>
-      <i class="fa fa-map-marker" style="padding-top:10%; padding-right: 5%; padding-left: 10%; font-size: 30px;" aria-hidden="true"></i><span style="font-size: 20px;font-family: Comic Sans MS;">Kozhikode,kerala</span> <br>
+        <i class="fa fa-phone" style="padding-left: 10%;padding-top: 10%; padding-right: 5%; font-size: 30px; "
+          aria-hidden="true"></i> <span style="font-size: 20px;font-family: Comic Sans MS;">+91 8129931412</span> <br>
+        <i class="fa fa-envelope" style="padding-left: 10%; padding-top: 10%; padding-right: 5%; font-size: 30px;"
+          aria-hidden="true"></i> <span style="font-size: 20px;font-family: Comic Sans MS;">rishan@baabte.com</span>
+        <br>
+        <i class="fa fa-map-marker" style="padding-top:10%; padding-right: 5%; padding-left: 10%; font-size: 30px;"
+          aria-hidden="true"></i><span style="font-size: 20px;font-family: Comic Sans MS;">Kozhikode,kerala</span> <br>
+
+
+
+      </div>
+
+
+
+
 
 
 
     </div>
-    
-
-    
-
-
-
-    
-  </div>
     <div class="col-md-6 col-12">
 
       <div class="wrapper" style="height: 100%; margin-top: 5%;">
@@ -212,7 +250,9 @@
       </div>
 
     </div>
-  
-</div><br><br>
+
+  </div><br><br>
+
+</div>
 
 {% endblock %}
